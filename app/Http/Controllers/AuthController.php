@@ -2,46 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rules\Password;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Http;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
 
     /**
-     * Get a JWT via given credentials.
-     * @return \Illuminate\Http\JsonResponse
+     * Handle an authentication attempt.
      */
-    public function login(Request $request)
+    public function index(): View
     {
-        $credentials = $request->only('username', 'password');
-        $user = User::where('email', $request->email)->first();
-
-        if(!$user) {
-            return response()->json(['message' => 'Usuario no registrado.'], 200);
-        }
-
-        if () {
-
-        }
-            
-        
-        if ($responseObject->success && $user) {
-            DB::commit();
-            return response()->json(['success' => true, 'token' => $token, 'em' => $request->email, 'message' => 'Inicio de sesión exitoso.'],200);
-            return response()->json($data, 200);
-        }
-
-        DB::rollBack();
-        return response()->json(['message' => $responseObject->message], 400);
+        return view('auth.login');
     }
 
-    public function logout(Request $request)
+    public function login(Request $request): RedirectResponse
     {
-        $user = User::findOrFail($request->auth_user_id);
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->intended('dashboard');
+        }
+ 
+        return back()->withErrors([
+            'username' => 'Las credencias son incorrectas.',
+        ])->onlyInput('username');
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/login');
     }
 }

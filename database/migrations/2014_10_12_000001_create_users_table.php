@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username', 25);
             $table->string('password');
             $table->string('email', 50)->unique()->nullable();
-            $table->foreignId('project_id')->nulleable()->constrained();
+            $table->tinyInteger('role')->comment('0: Administrador, 1: Jefe de proyecto, 2: Usuario de almacen');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

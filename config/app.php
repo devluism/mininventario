@@ -16,7 +16,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Servicio Informático de Minerven'),
+    'short-name' => env('APP_SHORT_NAME', 'SIM'),
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -182,6 +184,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
