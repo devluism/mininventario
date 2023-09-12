@@ -1,5 +1,25 @@
 import 'bootstrap';
+import { Modal } from 'bootstrap';
+window.Modal = Modal;
 
+import $ from 'jquery';
+window.$ = $;
+
+import jszip from 'jszip';
+import pdfMake from 'pdfmake';
+import DataTable from 'datatables.net-bs5';
+import 'datatables.net-buttons-bs5';
+import 'datatables.net-buttons/js/buttons.colVis.mjs';
+import 'datatables.net-buttons/js/buttons.html5.mjs';
+import 'datatables.net-buttons/js/buttons.print.mjs';
+import DateTime from 'datatables.net-datetime';
+import 'datatables.net-responsive-bs5';
+import 'datatables.net-rowgroup-bs5';
+
+window.jszip = jszip;
+window.pdfMake = pdfMake;
+window.DataTable = DataTable;
+window.DateTime = DateTime;
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

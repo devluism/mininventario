@@ -33,11 +33,7 @@
     @yield('styles')
 
     <!-- Scripts -->
-    @vite([
-        'resources/sass/app.scss',
-        'resources/js/app.js',
-        'resources/libs/fontawesome/css/all.min.css',
-    ])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
@@ -45,8 +41,8 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.short-name', 'MININVENTARIO') }} --}}
-                    <img src="/resources/images/logos/minerven-full.png" alt="">
-                    Sistema
+                    <img width="50" src="{{ Vite::image('logos/minerven-isotipo.png') }}" alt="Logo de Minerven">
+                    <span class="fw-bold text-uppercase fs-6">Inventario</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -76,7 +72,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <span class="text-white">{{ Auth::user()->username }}</span>
+                                    <span class="text-white"><i class="fas fa-user me-2"></i>{{ Auth::user()->username }}</span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

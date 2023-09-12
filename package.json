@@ -9,6 +9,7 @@
         "@popperjs/core": "^2.11.6",
         "axios": "^1.1.2",
         "bootstrap": "^5.2.3",
+        "jquery": "^3.7.1",
         "laravel-datatables-vite": "^0.5.2",
         "laravel-vite-plugin": "^0.8.0",
         "sass": "^1.56.1",
@@ -18,7 +19,10 @@
         "datatables.net-autofill-bs5": "^2.6.0",
         "datatables.net-bs5": "^1.13.6",
         "datatables.net-buttons-bs5": "^2.4.2",
+        "datatables.net-datetime": "^1.5.0",
         "datatables.net-responsive-bs": "^2.5.0",
+        "datatables.net-responsive-bs5": "^2.5.0",
+        "datatables.net-rowgroup-bs5": "^1.4.0",
         "jszip": "^3.10.1",
         "pdfmake": "^0.2.7"
     }

@@ -10,6 +10,14 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'description',
+        'stock',
+        'project_id',
+        'warehouse_id',
+        'supplier_id',
+    ];
+
     public function project(): HasOne
     {
         return $this->hasOne(Project::class, 'id', 'project_id');
