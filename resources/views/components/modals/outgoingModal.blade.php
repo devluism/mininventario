@@ -15,8 +15,8 @@
                 </div>
             </div>         
             <div class="col-md-12 form-group">
-                <label for="stockInput" class="form-label">Cantidad saliente</label>
-                <input type="number" value="1" min="1" step="1" class="form-control" id="stockInput" name="stock" required onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                <label for="amountInput" class="form-label">Cantidad saliente</label>
+                <input type="number" value="1" min="1" step="1" class="form-control" id="amountInput" name="amount" required onkeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
             </div>           
             <div class="col-md-12 form-group">
                 <label for="receiverInput" class="form-label">Recibe</label>
@@ -27,7 +27,7 @@
             </div>  
         </div>
         <input type="hidden" name="product_id" value="{{ $product->id }}">
-        <input type="hidden" name="type" value="1">
+        <input type="hidden" name="type" value="outgoing">
     </div>
 
     <div class="modal-footer">

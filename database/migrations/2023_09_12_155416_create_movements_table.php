@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('movements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
             $table->string('delivery_name');
             $table->integer('delivery_id');
             $table->string('receiver_name');
             $table->integer('receiver_id');
-            $table->integer('amount');
+            $table->bigInteger('amount');
             $table->enum('type', ['incoming', 'outgoing']);
             $table->timestamps();
         });

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100);
             $table->foreignId('user_id')->constrained();
+            $table->string('url');
             $table->timestamps();
         });
     }

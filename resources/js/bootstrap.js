@@ -1,6 +1,14 @@
 import 'bootstrap';
-import { Modal } from 'bootstrap';
+import { Modal, Alert, Toast } from 'bootstrap';
 window.Modal = Modal;
+
+window.toast =  (status, icon, message, delay=3000) => {
+    $('#toastElement').addClass(`text-bg-${status}`)
+    $('#toastIcon').addClass(`fa-circle-${icon}`)
+    $('#toastText').text(message)
+    
+    new Toast('#toastElement', { delay: delay }).show();
+}
 
 import $ from 'jquery';
 window.$ = $;
